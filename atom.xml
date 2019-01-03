@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-03T09:54:16.168Z</updated>
+  <updated>2019-01-02T09:46:46.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,144 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/01/03/mysql-quan-xian-guan-li/"/>
+    <id>http://yoursite.com/2019/01/03/mysql-quan-xian-guan-li/</id>
+    <published>2019-01-03T12:07:41.051Z</published>
+    <updated>2019-01-02T09:46:46.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;use hrs&lt;/p&gt;
+&lt;p&gt;– 事务：多个数据操作要么全都成功要么全都失败（不可分割） - 一致性问题&lt;br&gt;start transaction;  – 开启事务&lt;br&gt;begin;              – 开启事务&lt;/p&gt;
+&lt;p&gt;commit;         
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/01/03/mysql-zeng-shan-cha-gai/"/>
+    <id>http://yoursite.com/2019/01/03/mysql-zeng-shan-cha-gai/</id>
+    <published>2019-01-03T12:07:41.049Z</published>
+    <updated>2018-12-26T11:18:40.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;– 关系型数据库可以保证数据的完整性&lt;br&gt;– 实体完整性:每条记录都是独一无二的没有冗余 - 主键/唯一索引&lt;br&gt;– 参照完整性(引用完整性):外键&lt;br&gt;– 域完整性:数据类型、非空约束、默认值约束、检查约束&lt;/p&gt;
+&lt;p&gt;– 创建SRS数据库&lt;br&gt;drop
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/01/03/mysql-ji-chu/"/>
+    <id>http://yoursite.com/2019/01/03/mysql-ji-chu/</id>
+    <published>2019-01-03T12:07:41.047Z</published>
+    <updated>2018-12-26T11:17:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;xlrd xlwt&lt;br&gt;1.���ݿ� - ʵ����Ŀ�е����ݳ־û�&lt;/p&gt;
+&lt;p&gt;���ݿ�����&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;��ϵ�����ݿ� -
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/01/03/zi-fu-chuan-fang-fa-zong-jie/"/>
+    <id>http://yoursite.com/2019/01/03/zi-fu-chuan-fang-fa-zong-jie/</id>
+    <published>2019-01-03T12:07:05.499Z</published>
+    <updated>2018-11-28T11:12:06.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;0.len(字符串) - 返回字符串长度（字符的个数）&lt;br&gt;1.字符串.capitalize() - 第一个字母转换大写&lt;br&gt;2.字符串.center(宽度，填充物) - 居中 （ljust-左对齐，rjust-右对齐）&lt;br&gt;3.字符串1.join（字符串2）-
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Django增删查改</title>
+    <link href="http://yoursite.com/2019/01/03/django-zeng-shan-cha-gai/"/>
+    <id>http://yoursite.com/2019/01/03/django-zeng-shan-cha-gai/</id>
+    <published>2019-01-03T12:05:52.081Z</published>
+    <updated>2019-01-03T11:48:49.948Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-增&quot;&gt;&lt;a href=&quot;#1-增&quot; class=&quot;headerlink&quot; title=&quot;1.增&quot;&gt;&lt;/a&gt;1.增&lt;/h2&gt;&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Django基础</title>
+    <link href="http://yoursite.com/2019/01/03/django-ji-chu/"/>
+    <id>http://yoursite.com/2019/01/03/django-ji-chu/</id>
+    <published>2019-01-03T12:05:50.049Z</published>
+    <updated>2019-01-03T12:04:07.799Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-虚拟环境&quot;&gt;&lt;a href=&quot;#1-虚拟环境&quot; class=&quot;headerlink&quot; title=&quot;1.虚拟环境&quot;&gt;&lt;/a&gt;1.虚拟环境&lt;/h2&gt;&lt;h3 id=&quot;a-安装-pip-install-virtualenv&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>title</title>

@@ -5,11 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Nginx服务器安装, Mr Chao">
-    <meta name="description" content="Nginx服务器1.阿里云添加80端口阿里云上默认只有一个22端口用来做远程登录，如果希望在阿里云上安装支持http请求的nginx服务器，需要给阿里云添加80端口
-
-2. 安装nginxa) 添加nginx存储库  
-    yum in">
+    <meta name="keywords" content="Django基础, Mr Chao">
+    <meta name="description" content="1.虚拟环境a.安装: pip install virtualenvb. 使用: virtualenv –no-site-packages -p D:\python3\python.exe name–no-site-packages: 表示">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Nginx服务器安装 | Mr Chao</title>
+    <title>Django基础 | Mr Chao</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -276,13 +273,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Nginx服务器安装
+                        Django基础
                     </div>
                 </div>
             </div>
@@ -304,7 +301,7 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-02
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-03
                 </span>
 				
 				
@@ -316,48 +313,16 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Nginx服务器"><a href="#Nginx服务器" class="headerlink" title="Nginx服务器"></a>Nginx服务器</h1><h3 id="1-阿里云添加80端口"><a href="#1-阿里云添加80端口" class="headerlink" title="1.阿里云添加80端口"></a>1.阿里云添加80端口</h3><p>阿里云上默认只有一个22端口用来做远程登录，如果希望在阿里云上安装支持http请求的nginx服务器，需要给阿里云添加80端口</p>
-<p><img src="./img/aliyun0.png" alt="打开安全组设置"><br><img src="./img/aliyun2.png" alt=""><br><img src="./img/aliyun3.png" alt=""><br><img src="./img/aliyun4.png" alt=""></p>
-<h3 id="2-安装nginx"><a href="#2-安装nginx" class="headerlink" title="2. 安装nginx"></a>2. 安装nginx</h3><p>a) 添加nginx存储库  </p>
-<pre class=" language-python"><code class="language-python">    yum install epel<span class="token operator">-</span>release
-</code></pre>
-<p>b) 安装nginx</p>
-<pre class=" language-python"><code class="language-python">    yum install nginx
-</code></pre>
-<p>c) 运行nginx<br>Nginx不会自行启动。要运行Nginx  </p>
-<pre><code>    systemctl start nginx
-</code></pre><p>nginx的运行命令:  </p>
-<pre><code>    systemctl status nginx 查看nginx的状态  
-    systemctl start/stop/enable/disable nginx 启动/关闭/设置开机启动/禁止开机启动  
-</code></pre><p>d) 系统启动时启动Nginx  </p>
-<pre><code>    systemctl enable nginx
-</code></pre><p>e）如果您正在运行防火墙，请运行以下命令以允许HTTP和HTTPS通信：   </p>
-<pre><code>    sudo firewall-cmd --permanent --zone=public --add-service=http 
-
-    sudo firewall-cmd --permanent --zone=public --add-service=https
-
-    sudo firewall-cmd --reload
-</code></pre><h3 id="3-nginx目录共享配置"><a href="#3-nginx目录共享配置" class="headerlink" title="3.nginx目录共享配置"></a>3.nginx目录共享配置</h3><p>a) 在contOS目录中确定一个需要共享的文件夹，例如： /home/yuting<br>b) 打开 etc/nginx/nginx.conf 文件，设置server</p>
-<pre><code>    #共享设置 - 在浏览器中输入服务器ip地址，会展示共享目录的文件列表
-    root /home/yuting;
-    location / {
-           autoindex on;
-           autoindex_exact_size on;
-           autoindex_localtime on;
-    }  
-</code></pre><p>除了可以共享文件，还可以自定义页面</p>
-<pre><code>    #自定义服务器页面
-    location / {
-            root /home/yuting;
-            index index.html index.htm;
-    }
-</code></pre><p>注意： 如果出现权限问题，可以修改目录的权限  </p>
-<h1 id="ssh密钥认证"><a href="#ssh密钥认证" class="headerlink" title="ssh密钥认证"></a>ssh密钥认证</h1><p>1.在主机和从机上执行：<code>ssh-keygen</code></p>
-<p>2.在从机上执行:  <code>scp  id_rsa.pub  root@主机地址:~/.ssh/master.pub</code><br>(上面这条指令是将从机上的 id_rsa.pub文件拷贝传递给到主机的.ssh文件夹下，并且命名为’master.pub’)</p>
-<p>3.在主机中的.ssh文件夹中创建authorized_keys文件： <code>touch authorized_keys</code> </p>
-<p>4.修改文件authorized_keys的权限: <code>chmod 600  authorized_keys</code>  </p>
-<p>5.将master.pub放进authorized_keys文件中:  <code>cat master.pub &gt;&gt;  authorized_keys</code></p>
-<p>6.在操作主机的时候，需要主机能够自己免密访问自己就将自己的公钥放在自己的authorized_keys文件中</p>
+                <h2 id="1-虚拟环境"><a href="#1-虚拟环境" class="headerlink" title="1.虚拟环境"></a>1.虚拟环境</h2><h3 id="a-安装-pip-install-virtualenv"><a href="#a-安装-pip-install-virtualenv" class="headerlink" title="a.安装: pip install virtualenv"></a>a.安装: pip install virtualenv</h3><h3 id="b-使用-virtualenv-–no-site-packages-p-D-python3-python-exe-name"><a href="#b-使用-virtualenv-–no-site-packages-p-D-python3-python-exe-name" class="headerlink" title="b. 使用: virtualenv –no-site-packages -p D:\python3\python.exe name"></a>b. 使用: virtualenv –no-site-packages -p D:\python3\python.exe name</h3><p>–no-site-packages: 表示创建的虚拟环境为纯净的环境，不安装有其他的库<br>-p: 表示虚拟环境中的python版本</p>
+<h3 id="c-pip使用"><a href="#c-pip使用" class="headerlink" title="c. pip使用"></a>c. pip使用</h3><p>pip list: 插看安装的库<br>pip install xxx: 安装</p>
+<h3 id="d-激活虚拟环境"><a href="#d-激活虚拟环境" class="headerlink" title="d. 激活虚拟环境"></a>d. 激活虚拟环境</h3><p>Windows: 直接执行activate命令<br>Mac/Linux/Ubuntu: 直接执行source activate命令</p>
+<h3 id="e-退出虚拟环境"><a href="#e-退出虚拟环境" class="headerlink" title="e. 退出虚拟环境"></a>e. 退出虚拟环境</h3><p>Windows/Mac/Linux/Ubuntu: 直接执行deactivate</p>
+<h2 id="2-Django项目"><a href="#2-Django项目" class="headerlink" title="2.Django项目"></a>2.Django项目</h2><h3 id="a-创建项目-django-amdin-startproject-项目名称"><a href="#a-创建项目-django-amdin-startproject-项目名称" class="headerlink" title="a. 创建项目: django-amdin startproject 项目名称"></a>a. 创建项目: django-amdin startproject 项目名称</h3><h3 id="b-创建应用-python-manage-py-startapp-应用名称"><a href="#b-创建应用-python-manage-py-startapp-应用名称" class="headerlink" title="b. 创建应用: python manage.py startapp 应用名称"></a>b. 创建应用: python manage.py startapp 应用名称</h3><h3 id="c-启动"><a href="#c-启动" class="headerlink" title="c. 启动"></a>c. 启动</h3><p>c1. 启动命令: python manage.py runserver。默认IP为127.0.0.1  默认端口为8000<br>c2. 修改启动端口: python manage.py runserver 端口<br>c3. 修改IP和端口: python manage.py runserver IP:端口<br>c4. IP参数: 如果为0.0.0.0表示任何人都可以通过公网IP访问django项目<br>c5. 端口PORT参数: 如果端口设置为80，表示该端口可以不用写</p>
+<h2 id="3-Django模式"><a href="#3-Django模式" class="headerlink" title="3.Django模式"></a>3.Django模式</h2><p>M:<br>模型层: 定义模型和数据库中的表之间的关联关系<br>V:<br>视图层: 定义业务逻辑<br>T :<br>模板: HTML页面</p>
+<h2 id="4-数据库准备工作"><a href="#4-数据库准备工作" class="headerlink" title="4.数据库准备工作"></a>4.数据库准备工作</h2><h3 id="a-settings-py中配置"><a href="#a-settings-py中配置" class="headerlink" title="a. settings.py中配置"></a>a. settings.py中配置</h3><p>USER参数: 访问用户<br>PASSWORD参数: 密码<br>HOST参数: 访问数据库的地址<br>PORT参数: 访问数据库的端口<br>NAME参数: 数据库名<br>‘OPTIONS’:{‘isolation_level’:None}</p>
+<h3 id="b-安装pymysql"><a href="#b-安装pymysql" class="headerlink" title="b. 安装pymysql"></a>b. 安装pymysql</h3><p>b1. 使用pymysql连接数据库: 因为python3没有MySQLdb驱动，无法直接连接MySQL<br>b2. 在工程目录的<strong>init</strong>.py文件中定义  pymysql.install_as_MySQLdb()</p>
+<h3 id="c-迁移"><a href="#c-迁移" class="headerlink" title="c. 迁移"></a>c. 迁移</h3><p>c1. 第一次迁移: python manege.py migrate<br>c2. 之后迁移(除开第一次迁移)<br>生成迁移文件: python manage.py makemigrations<br>执行迁移文件: python manage.py migrate</p>
+<h3 id="d-插入管理员账号"><a href="#d-插入管理员账号" class="headerlink" title="d. 插入管理员账号"></a>d. 插入管理员账号</h3><p>python manage.py createsuperuser</p>
 
             </div>
             <hr>
@@ -496,7 +461,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">Mr Chao</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/02/nginx-fu-wu-qi-an-zhuang/" class="b-link-green">Nginx服务器安装</a>
+                    <a href="/2019/01/03/django-ji-chu/" class="b-link-green">Django基础</a>
                 </p>
             </div>
         </div>
@@ -520,27 +485,25 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2019/01/02/redis-ming-ling/">
+                <a href="/2019/01/03/django-zeng-shan-cha-gai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="redis命令">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Django增删查改">
                         
-                        <span class="card-title">redis命令</span>
+                        <span class="card-title">Django增删查改</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、连接操作相关的命令
-quit：关闭连接（connection）
-auth：简单密码认证
-2、对value操作的命令
-exists(key)：确认一个key是否存在
-del(key)：删除一个key
-type(key)：返回值的类型
-ke</div>
+                    <div class="summary">1.增def add_stu(request):
+    # 实现插入数据
+    # 实现的第一种方式
+    Student.objects.create(s_name='小涛')
+    # 实现的第二种方式
+    stu = St</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-02
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
                         </span>
                         <span class="publish-author">
                             
@@ -558,24 +521,20 @@ ke</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2019/01/02/linux-wen-jian-cao-zuo-ming-ling/">
+                <a href="/2019/01/03/title/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Linux文件操作命令">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="title">
                         
-                        <span class="card-title">Linux文件操作命令</span>
+                        <span class="card-title">title</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Linux文件操作命令：
-
-pwd - print working directory
-cd - change directory
-ls - list directory contents -a - all  -l - long  -R -</div>
+                    <div class="summary">你好！hello！</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
                             </span>
                         <span class="publish-author">
                             
