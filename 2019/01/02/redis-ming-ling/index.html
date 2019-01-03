@@ -5,8 +5,15 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="mysql查语法, Mr Chao">
-    <meta name="description" content="– 创建人力资源管理系统数据库drop database if exists hrs;create database hrs default charset utf8;– 切换数据库上下文环境use hrs;– 删除表drop table ">
+    <meta name="keywords" content="redis命令, Mr Chao">
+    <meta name="description" content="1、连接操作相关的命令
+quit：关闭连接（connection）
+auth：简单密码认证
+2、对value操作的命令
+exists(key)：确认一个key是否存在
+del(key)：删除一个key
+type(key)：返回值的类型
+ke">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>mysql查语法 | Mr Chao</title>
+    <title>redis命令 | Mr Chao</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -273,13 +280,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        mysql查语法
+                        redis命令
                     </div>
                 </div>
             </div>
@@ -301,7 +308,7 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-03
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-02
                 </span>
 				
 				
@@ -313,18 +320,111 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>– 创建人力资源管理系统数据库<br>drop database if exists hrs;<br>create database hrs default charset utf8;<br>– 切换数据库上下文环境<br>use hrs;<br>– 删除表<br>drop table if exists tb_emp;<br>drop table if exists tb_dept;<br>– 创建部门表<br>create table tb_dept<br>(<br>dno int comment ‘部门编号’,<br>dname varchar(10) not null comment ‘部门名称’,<br>dloc varchar(20) not null    comment ‘部门所在地’,<br>primary key (dno)<br>);<br>– 添加部门记录<br>insert into tb_dept values<br> (10, ‘会计部’, ‘北京’),<br> (20, ‘研发部’, ‘成都’),<br> (30, ‘销售部’, ‘重庆’),<br> (40, ‘运维部’, ‘深圳’);<br>– 创建员工表<br>create table tb_emp<br>(<br>eno int comment ‘员工编号’,<br>ename varchar(20) not null comment ‘员工姓名’,<br>job varchar(20) not null comment ‘员工职位’,<br>mgr int comment ‘主管编号’,<br>sal int not null comment ‘员工工资’,<br>comm int comment ‘每月补贴’,<br>dno int comment ‘所在部门编号’,<br>primary key (eno),<br>foreign key (dno) references tb_dept (dno)<br>);</p>
-<p>– 添加员工记录<br>insert into tb_emp values<br> (7800, ‘张三丰’, ‘总裁’, null, 9000, 1200, 20),<br> (2056, ‘乔峰’, ‘分析师’, 7800, 5000, 1500, 20),<br> (3088, ‘李莫愁’, ‘设计师’, 2056, 3500, 800, 20),<br> (3211, ‘张无忌’, ‘程序员’, 2056, 3200, null, 20),<br> (3233, ‘丘处机’, ‘程序员’, 2056, 3400, null, 20),<br> (3251, ‘张翠山’, ‘程序员’, 2056, 4000, null, 20),<br> (5566, ‘宋远桥’, ‘会计师’, 7800, 4000, 1000, 10),<br> (5234, ‘郭靖’, ‘出纳’, 5566, 2000, null, 10),<br> (3344, ‘黄蓉’, ‘销售主管’, 7800, 3000, 800, 30),<br> (1359, ‘胡一刀’, ‘销售员’, 3344, 1800, 200, 30),<br> (4466, ‘苗人凤’, ‘销售员’, 3344, 2500, null, 30),<br> (3244, ‘欧阳锋’, ‘程序员’, 3088, 3200, null, 20),<br> (3577, ‘杨过’, ‘会计’, 5566, 2200, null, 10),<br> (3588, ‘朱九真’, ‘会计’, 5566, 2500, null, 10);</p>
-<p>– 查询薪资最高的员工姓名和工资<br>select ename as 姓名, sal as 月薪 from tb_emp<br>where sal=(select max(sal) from tb_emp);</p>
-<p>– 查询员工的姓名和年薪((工资+补贴)<em>12)<br>select ename as 姓名, (sal+ifnull(comm,0))</em>12 as 年薪<br>from tb_emp order by 年薪 desc;</p>
-<p>– 查询有员工的部门的编号和人数<br>select dno as 部门编号, count(dno) as 人数<br>from tb_emp group by dno;</p>
-<p>– 查询所有部门的名称和人数<br>– 当列有二义性的时候使用完全限定名<br>select dname as 部门名称, total from tb_dept t1,<br>(select dno, count(dno) as total from tb_emp group by dno) t2<br>where t1.dno=t2.dno;</p>
-<p>select dname as 部门名称, ifnull(total,0) from tb_dept t1 left outer join<br>(select dno, count(dno) as total from tb_emp group by dno) t2<br>on t1.dno=t2.dno;</p>
-<p>– 查询薪资最高的员工(Boss除外)的姓名和工资<br>select ename as 姓名, sal as 薪资 from tb_emp<br>where sal=(select max(sal) from tb_emp where mgr);<br>– 查询薪水超过平均薪水的员工的姓名和工资<br>select ename as 姓名, sal as 薪资 from tb_emp<br>where sal&gt;(select avg(sal) from tb_emp);<br>– 查询薪水超过其所在部门平均薪水的员工的姓名、部门编号和工资<br>select ename, t1.dno, sal from tb_emp t1 inner join<br>(select dno, avg(sal) as avgsal from tb_emp group by dno) t2<br>on t1.dno=t2.dno<br>where sal&gt;avgsal;<br>– 查询部门中薪水最高的人姓名、工资和所在部门名称<br>select ename as 名字, sal as 工资, dname as 部门名称 from tb_dept t3 inner join<br>(select ename, sal, t1.dno from tb_emp t1 inner join<br>(select dno, max(sal) as maxsal from tb_emp group by dno) t2<br>on t1.dno=t2.dno<br>where sal=maxsal) t4<br>on t3.dno=t4.dno;<br>– 查询主管的姓名和职位</p>
-<p>– 集合运算和去重操作性能都非常糟糕应该尽量避免使用<br>– 可以使用exists和not exists来替代集合运算和去重</p>
-<p>select ename, job from tb_emp t1 where exists<br>(select ‘x’ from tb_emp t2 where t1.eno=t2.mgr);</p>
-<p>select ename, job from tb_emp t1 where not exists<br>(select ‘x’ from tb_emp t2 where t1.eno=t2.mgr);<br>– 查询薪资排名4~6名的员工姓名和工资<br>select ename, sal from tb_emp order by sal desc limit 3,3;<br>select ename, sal from tb_emp order by sal desc limit 3 offset 3;</p>
-<p>– select - from - where - group by(分组) - having - order by(排序) - limit</p>
+                <p>1、连接操作相关的命令</p>
+<p>quit：关闭连接（connection）</p>
+<p>auth：简单密码认证</p>
+<p>2、对value操作的命令</p>
+<p>exists(key)：确认一个key是否存在</p>
+<p>del(key)：删除一个key</p>
+<p>type(key)：返回值的类型</p>
+<p>keys(pattern)：返回满足给定pattern的所有key</p>
+<p>randomkey：随机返回key空间的一个key</p>
+<p>rename(oldname, newname)：将key由oldname重命名为newname，若newname存在则删除newname表示的key</p>
+<p>dbsize：返回当前数据库中key的数目</p>
+<p>expire：设定一个key的活动时间（s）</p>
+<p>ttl：获得一个key的活动时间</p>
+<p>select(index)：按索引查询</p>
+<p>move(key, dbindex)：将当前数据库中的key转移到有dbindex索引的数据库</p>
+<p>flushdb：删除当前选择数据库中的所有key</p>
+<p>flushall：删除所有数据库中的所有key</p>
+<p>3、对String操作的命令</p>
+<p>set(key, value)：给数据库中名称为key的string赋予值value</p>
+<p>get(key)：返回数据库中名称为key的string的value</p>
+<p>getset(key, value)：给名称为key的string赋予上一次的value</p>
+<p>mget(key1, key2,…, key N)：返回库中多个string（它们的名称为key1，key2…）的value</p>
+<p>setnx(key, value)：如果不存在名称为key的string，则向库中添加string，名称为key，值为value</p>
+<p>setex(key, time, value)：向库中添加string（名称为key，值为value）同时，设定过期时间time</p>
+<p>mset(key1, value1, key2, value2,…key N, value N)：同时给多个string赋值，名称为key i的string赋值value i</p>
+<p>msetnx(key1, value1, key2, value2,…key N, value N)：如果所有名称为key i的string都不存在，则向库中添加string，</p>
+<p>名称key i赋值为value i</p>
+<p>incr(key)：名称为key的string增1操作</p>
+<p>incrby(key, integer)：名称为key的string增加integer</p>
+<p>decr(key)：名称为key的string减1操作</p>
+<p>decrby(key, integer)：名称为key的string减少integer</p>
+<p>append(key, value)：名称为key的string的值附加value</p>
+<p>substr(key, start, end)：返回名称为key的string的value的子串</p>
+<p>4、对List操作的命令</p>
+<p>rpush(key, value)：在名称为key的list尾添加一个值为value的元素</p>
+<p>lpush(key, value)：在名称为key的list头添加一个值为value的 元素</p>
+<p>llen(key)：返回名称为key的list的长度</p>
+<p>lrange(key, start, end)：返回名称为key的list中start至end之间的元素（下标从0开始，下同）</p>
+<p>ltrim(key, start, end)：截取名称为key的list，保留start至end之间的元素</p>
+<p>lindex(key, index)：返回名称为key的list中index位置的元素</p>
+<p>lset(key, index, value)：给名称为key的list中index位置的元素赋值为value</p>
+<p>lrem(key, count, value)：删除count个名称为key的list中值为value的元素。</p>
+<p>count为0，删除所有值为value的元素，count&gt;0从头至尾删除count个值为value的元素，count&lt;0从尾到头删除|count|个值为value的元素。 </p>
+<p>lpop(key)：返回并删除名称为key的list中的首元素 rpop(key)：返回并删除名称为key的list中的尾元素 </p>
+<p>blpop(key1, key2,… key N, timeout)：lpop命令的block版本。</p>
+<p>即当timeout为0时，若遇到名称为key i的list不存在或该list为空，则命令结束。</p>
+<p>如果timeout&gt;0，则遇到上述情况时，等待timeout秒，如果问题没有解决，则对keyi+1开始的list执行pop操作。</p>
+<p>brpop(key1, key2,… key N, timeout)：rpop的block版本。参考上一命令。</p>
+<p>rpoplpush(srckey, dstkey)：返回并删除名称为srckey的list的尾元素，并将该元素添加到名称为dstkey的list的头部</p>
+<p>5、对Set操作的命令</p>
+<p>sadd(key, member)：向名称为key的set中添加元素member</p>
+<p>srem(key, member) ：删除名称为key的set中的元素member</p>
+<p>spop(key) ：随机返回并删除名称为key的set中一个元素</p>
+<p>smove(srckey, dstkey, member) ：将member元素从名称为srckey的集合移到名称为dstkey的集合</p>
+<p>scard(key) ：返回名称为key的set的基数</p>
+<p>sismember(key, member) ：测试member是否是名称为key的set的元素</p>
+<p>sinter(key1, key2,…key N) ：求交集</p>
+<p>sinterstore(dstkey, key1, key2,…key N) ：求交集并将交集保存到dstkey的集合</p>
+<p>sunion(key1, key2,…key N) ：求并集</p>
+<p>sunionstore(dstkey, key1, key2,…key N) ：求并集并将并集保存到dstkey的集合</p>
+<p>sdiff(key1, key2,…key N) ：求差集</p>
+<p>sdiffstore(dstkey, key1, key2,…key N) ：求差集并将差集保存到dstkey的集合</p>
+<p>smembers(key) ：返回名称为key的set的所有元素</p>
+<p>srandmember(key) ：随机返回名称为key的set的一个元素</p>
+<p>6、对zset（sorted set）操作的命令</p>
+<p>zadd(key, score, member)：向名称为key的zset中添加元素member，score用于排序。如果该元素已经存在，则根据score更新该元素的顺序。</p>
+<p>zrem(key, member) ：删除名称为key的zset中的元素member</p>
+<p>zincrby(key, increment, member) ：如果在名称为key的zset中已经存在元素member，则该元素的score增加increment；</p>
+<p>否则向集合中添加该元素，其score的值为increment</p>
+<p>zrank(key, member) ：返回名称为key的zset（元素已按score从小到大排序）中member元素的rank（即index，从0开始），</p>
+<p>若没有member元素，返回“nil”</p>
+<p>zrevrank(key, member) ：返回名称为key的zset（元素已按score从大到小排序）中member元素的rank（即index，从0开始），</p>
+<p>若没有member元素，返回“nil”</p>
+<p>zrange(key, start, end)：返回名称为key的zset（元素已按score从小到大排序）中的index从start到end的所有元素</p>
+<p>zrevrange(key, start, end)：返回名称为key的zset（元素已按score从大到小排序）中的index从start到end的所有元素</p>
+<p>zrangebyscore(key, min, max)：返回名称为key的zset中score &gt;= min且score &lt;= max的所有元素 </p>
+<p>zcard(key)：返回名称为key的zset的基数 zscore(key, element)：返回名称为key的zset中元素element的</p>
+<p>score zremrangebyrank(key, min, max)：删除名称为key的zset中rank &gt;= min且rank &lt;= max的所有元素 </p>
+<p>zremrangebyscore(key, min, max) ：删除名称为key的zset中score &gt;= min且score &lt;= max的所有元素</p>
+<p>zunionstore / zinterstore(dstkeyN, key1,…,keyN, WEIGHTS w1,…wN, AGGREGATE SUM|MIN|MAX)：对N个zset求并集和交集，</p>
+<p>并将最后的集合保存在dstkeyN中。对于集合中每一个元素的score，在进行AGGREGATE运算前，都要乘以对于的WEIGHT参数。</p>
+<p>如果没有提供WEIGHT，默认为1。默认的AGGREGATE是SUM，即结果集合中元素的score是所有集合对应元素进行SUM运算的值，而MIN和MAX是指，</p>
+<p>结果集合中元素的score是所有集合对应元素中最小值和最大值。</p>
+<p>7、对Hash操作的命令</p>
+<p>hset(key, field, value)：向名称为key的hash中添加元素field&lt;—&gt;value</p>
+<p>hget(key, field)：返回名称为key的hash中field对应的value</p>
+<p>hmget(key, field1, …,field N)：返回名称为key的hash中field i对应的value</p>
+<p>hmset(key, field1, value1,…,field N, value N)：向名称为key的hash中添加元素field i&lt;—&gt;value i</p>
+<p>hincrby(key, field, integer)：将名称为key的hash中field的value增加integer</p>
+<p>hexists(key, field)：名称为key的hash中是否存在键为field的域</p>
+<p>hdel(key, field)：删除名称为key的hash中键为field的域</p>
+<p>hlen(key)：返回名称为key的hash中元素个数</p>
+<p>hkeys(key)：返回名称为key的hash中所有键</p>
+<p>hvals(key)：返回名称为key的hash中所有键对应的value</p>
+<p>hgetall(key)：返回名称为key的hash中所有的键（field）及其对应的value</p>
+<p>8、持久化</p>
+<p>save：将数据同步保存到磁盘</p>
+<p>bgsave：将数据异步保存到磁盘</p>
+<p>lastsave：返回上次成功将数据保存到磁盘的Unix时戳</p>
+<p>shundown：将数据同步保存到磁盘，然后关闭服务</p>
+<p>9、远程服务控制</p>
+<p>info：提供服务器的信息和统计</p>
+<p>monitor：实时转储收到的请求</p>
+<p>slaveof：改变复制策略设置</p>
+<p>config：在运行时配置Redis服务器</p>
 
             </div>
             <hr>
@@ -463,7 +563,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">Mr Chao</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/03/mysql-cha-yu-fa/" class="b-link-green">mysql查语法</a>
+                    <a href="/2019/01/02/redis-ming-ling/" class="b-link-green">redis命令</a>
                 </p>
             </div>
         </div>
@@ -487,20 +587,23 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2019/01/03/title/">
+                <a href="/2019/01/02/redis-zhi-ling-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="title">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Redis指令(总结)">
                         
-                        <span class="card-title">title</span>
+                        <span class="card-title">Redis指令(总结)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">你好！hello！</div>
+                    <div class="summary">登录指令：
+redis-server –requirepass 123456 –appendonly yes –port 6379
+Linux + Apache + MySQL + PHP
+KV存储系统 - REmote DIctionar</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-02
                         </span>
                         <span class="publish-author">
                             
@@ -518,29 +621,20 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2019/01/02/qian-duan-zong-jie/">
+                <a href="/2019/01/02/nginx-fu-wu-qi-an-zhuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="前端(总结)">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Nginx服务器安装">
                         
-                        <span class="card-title">前端(总结)</span>
+                        <span class="card-title">Nginx服务器安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1.HTML标签 - 承载内容 - content2.CSS - 渲染页面 - display 
+                    <div class="summary">Nginx服务器1.阿里云添加80端口阿里云上默认只有一个22端口用来做远程登录，如果希望在阿里云上安装支持http请求的nginx服务器，需要给阿里云添加80端口
 
-选择器
-通配符
-标签选择器
-类选择器
-id选择器
-属性选择器
-后代选择器 / 父子选择器
-兄弟选择器 / 相邻兄弟选择器
-
-
-就近原则/具体</div>
+2. 安装nginxa) 添加nginx存储库  
+    yum in</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-02
