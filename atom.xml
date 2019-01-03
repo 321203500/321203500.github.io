@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-03T12:12:20.979Z</updated>
+  <updated>2019-01-03T12:16:40.080Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql基础</title>
+    <link href="http://yoursite.com/2019/01/03/mysql-ji-chu-zhi-shi/"/>
+    <id>http://yoursite.com/2019/01/03/mysql-ji-chu-zhi-shi/</id>
+    <published>2019-01-03T12:17:55.305Z</published>
+    <updated>2019-01-03T12:16:40.080Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;xlrd xlwt&lt;br&gt;1.数据库 - 实现项目中的数据持久化&lt;/p&gt;
+&lt;p&gt;数据库的类别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关系型数据库 -
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>mysql权限管理</title>
@@ -55,31 +80,6 @@
         
           &lt;p&gt;– 关系型数据库可以保证数据的完整性&lt;br&gt;– 实体完整性:每条记录都是独一无二的没有冗余 - 主键/唯一索引&lt;br&gt;– 参照完整性(引用完整性):外键&lt;br&gt;– 域完整性:数据类型、非空约束、默认值约束、检查约束&lt;/p&gt;
 &lt;p&gt;– 创建SRS数据库&lt;br&gt;drop
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>mysql����</title>
-    <link href="http://yoursite.com/2019/01/03/mysql-ji-chu/"/>
-    <id>http://yoursite.com/2019/01/03/mysql-ji-chu/</id>
-    <published>2019-01-03T12:07:41.047Z</published>
-    <updated>2019-01-03T12:12:46.912Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;xlrd xlwt&lt;br&gt;1.���ݿ� - ʵ����Ŀ�е����ݳ־û�&lt;/p&gt;
-&lt;p&gt;���ݿ�����&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;��ϵ�����ݿ� -
         
       
     

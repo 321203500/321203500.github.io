@@ -5,11 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="mysql����, Mr Chao">
-    <meta name="description" content="xlrd xlwt1.���ݿ� - ʵ����Ŀ�е����ݳ־û�
-���ݿ�����
+    <meta name="keywords" content="mysql基础, Mr Chao">
+    <meta name="description" content="xlrd xlwt1.数据库 - 实现项目中的数据持久化
+数据库的类别：
 
-��ϵ�����ݿ� - MySQL�ص�:1.���ۻ����������ۺ͹�ϵ����2.�ö�ά������֯���ݣ��У���¼���">
+关系型数据库 - MySQL特点:1.理论基础：集合论和关系代数2.用二维表来组织数据（行（记录）和列（字段））
+能够唯一标识一条记录的列成为主键(primary ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>mysql���� | Mr Chao</title>
+    <title>mysql基础 | Mr Chao</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -276,13 +277,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        mysql����
+                        mysql基础
                     </div>
                 </div>
             </div>
@@ -316,47 +317,47 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>xlrd xlwt<br>1.���ݿ� - ʵ����Ŀ�е����ݳ־û�</p>
-<p>���ݿ�����</p>
+                <p>xlrd xlwt<br>1.数据库 - 实现项目中的数据持久化</p>
+<p>数据库的类别：</p>
 <ul>
-<li>��ϵ�����ݿ� - MySQL<br>�ص�:<br>1.���ۻ����������ۺ͹�ϵ����<br>2.�ö�ά������֯���ݣ��У���¼�����У��ֶΣ���</li>
-<li>�ܹ�Ψһ��ʶһ����¼���г�Ϊ����(primary key)<br>3.SQL - �ṹ����ѯ����</li>
-<li>DDL - ���ݶ������� - create(����) / drop(ɾ��) / alter(�޸�)</li>
-<li>DML - ���ݲ������� - insert(����) / delete(ɾ��) / update(����) / select(ѡ��)</li>
-<li>DCL - ���ݿ������� - grant(����Ȩ��) / revoke(ɾ��Ȩ��) / commit(�ύ����) / rollback(�ع�)</li>
+<li>关系型数据库 - MySQL<br>特点:<br>1.理论基础：集合论和关系代数<br>2.用二维表来组织数据（行（记录）和列（字段））</li>
+<li>能够唯一标识一条记录的列成为主键(primary key)<br>3.SQL - 结构化查询语言</li>
+<li>DDL - 数据定义语言 - create(创建) / drop(删除) / alter(修改)</li>
+<li>DML - 数据操作语言 - insert(插入) / delete(删除) / update(更新) / select(选择)</li>
+<li>DCL - 数据控制语言 - grant(添加权限) / revoke(删除权限) / commit(提交事务) / rollback(回滚)</li>
 </ul>
-<p>��ϵ�����ݿ��Ʒ��<br>1.Oracle - �׹���<br>2.MySQL - �׹��� - MariaDB<br>3.DB2��SQLServer��PostgreSQL��SQLite</p>
+<p>关系型数据库产品：<br>1.Oracle - 甲骨文<br>2.MySQL - 甲骨文 - MariaDB<br>3.DB2、SQLServer、PostgreSQL、SQLite</p>
 <ul>
-<li><p>NoSQL���ݿ� - Redis<br>1.MongoDB - �ĵ����ݿ� - �ʺ������Ǽ�ֵ�͵����ݿ�<br>2.Redis - KV���ݿ� - ���ܺ��ʺ������ٻ������<br>3.ElasticSearch - ��������</p>
+<li><p>NoSQL数据库 - Redis<br>1.MongoDB - 文档数据库 - 适合量大但是价值低的数据库<br>2.Redis - KV数据库 - 性能好适合做高速缓存服务<br>3.ElasticSearch - 搜索引擎</p>
 </li>
-<li><p>Linux��װ����<br>1.���������� - yum / rpm</p>
+<li><p>Linux安装软件<br>1.包管理工具 - yum / rpm</p>
 </li>
 </ul>
-<p>Docker - ���⻯���񣬴������⻯��������װ����<br>yum -y install docker-io<br>yum -y remove docker-io<br>yum info …<br>yum search …<br>yum list installed | grep docker-io</p>
-<p>����Docker����<br>systemctl start docker - ��������<br>systemctl stop docker - ֹͣ����<br>systemctl restart docker - ����<br>systemctl status docker - �鿴״̬<br>systemctl enabl docker  - ��������<br>systemctl disable docker - ���ÿ�������</p>
-<p>ʹ��Docker������<br>1.�鿴�Ѿ����صľ����ļ�����װ������</p>
+<p>Docker - 虚拟化服务，创建虚拟化容器并安装软件<br>yum -y install docker-io<br>yum -y remove docker-io<br>yum info …<br>yum search …<br>yum list installed | grep docker-io</p>
+<p>启动Docker服务<br>systemctl start docker - 启动服务<br>systemctl stop docker - 停止服务<br>systemctl restart docker - 重启<br>systemctl status docker - 查看状态<br>systemctl enabl docker  - 开机自启<br>systemctl disable docker - 禁用开机自启</p>
+<p>使用Docker的命令<br>1.查看已经下载的镜像文件（安装包）：</p>
 <ul>
 <li>docker images</li>
 </ul>
-<p>2.����MySQL�ľ����ļ���<br>docker pull mysql:5.7</p>
-<p>MySQL���ݳ�������Ա�˺� - root<br>Oracle���ݿⳬ������Ա�˺� - sys<br>SQLServer���ݳ�������Ա�˺� - sa</p>
-<p>3.��������������<br>docker run -d -p 3306:3306 –name mysql57 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7</p>
-<p>4.�鿴�����е�����<br>docker ps</p>
-<p>5.�鿴���е�����<br>docker container ls -a</p>
-<p>6.ֹͣ����<br>docker stop mysql57</p>
-<p>7.��������<br>docker start mysql57</p>
-<p>8.ɾ������<br>docker rm -f mysql57</p>
-<p>��װMySQL�ͻ��˹���:<br>Navicat for MySQL - è<br>SQLyoh - ����<br>Toad for MySQL - ���</p>
-<p>===========================================================<br>1.<br>– SQL - �ṹ����ѯ����<br>– DDL - ���ݶ������� - create / drop / alter<br>– DML - ���ݲ������� - insert / delete / update / select<br>– DCL - ���ݿ������� - grant / revoke</p>
-<p>2.<br>– ������Ϊsrs�����ݿⲢ����Ĭ���ַ���Ϊutf8<br>create database srs default charset utf8;</p>
-<p>– �л���srs���ݿ�<br>use srs;</p>
-<p>– ���������Ϊtb_student�ı���ɾ��<br>drop table if exists tb_student;</p>
-<p>3.<br>– ��ѧ������ѧ�ſ���Ψһ�ı��һ��ѧ����¼</p>
-<p>– ����ͨ������������Ϊ������</p>
-<p>– Error: Duplicated Entry  ������ͻ���Ĵ��������Ѿ����ڣ�</p>
-<p>4.– �޸�ѧ����������ϵ��ʽ��</p>
-<p>alter table tb_student add column stutel char(11);  – �����ַ�����������11���ַ���</p>
-<p>– �޸�ѧ����ɾ����ϵ��ʽ��</p>
+<p>2.下载MySQL的镜像文件：<br>docker pull mysql:5.7</p>
+<p>MySQL数据超级管理员账号 - root<br>Oracle数据库超级管理员账号 - sys<br>SQLServer数据超级管理员账号 - sa</p>
+<p>3.创建并运行容器<br>docker run -d -p 3306:3306 –name mysql57 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7</p>
+<p>4.查看运行中的容器<br>docker ps</p>
+<p>5.查看所有的容器<br>docker container ls -a</p>
+<p>6.停止容器<br>docker stop mysql57</p>
+<p>7.启动容器<br>docker start mysql57</p>
+<p>8.删除容器<br>docker rm -f mysql57</p>
+<p>安装MySQL客户端工具:<br>Navicat for MySQL - 猫<br>SQLyoh - 海豚<br>Toad for MySQL - 蛤蟆</p>
+<p>===========================================================<br>1.<br>– SQL - 结构化查询语言<br>– DDL - 数据定义语言 - create / drop / alter<br>– DML - 数据操作语言 - insert / delete / update / select<br>– DCL - 数据控制语言 - grant / revoke</p>
+<p>2.<br>– 创建名为srs的数据库并设置默认字符集为utf8<br>create database srs default charset utf8;</p>
+<p>– 切换到srs数据库<br>use srs;</p>
+<p>– 如果存在名为tb_student的表就删除<br>drop table if exists tb_student;</p>
+<p>3.<br>– 在学生表中学号可以唯一的标记一条学生记录</p>
+<p>– 我们通常称这样的列为主键列</p>
+<p>– Error: Duplicated Entry  主键冲突报的错误（主键已经存在）</p>
+<p>4.– 修改学生表添加联系方式列</p>
+<p>alter table tb_student add column stutel char(11);  – 定长字符串，长度是11的字符串</p>
+<p>– 修改学生表删除联系方式列</p>
 <p>alter table tb_student drop column stutel;</p>
 
             </div>
@@ -496,7 +497,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">Mr Chao</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/03/mysql-ji-chu/" class="b-link-green">mysql����</a>
+                    <a href="/2019/01/03/mysql-ji-chu-zhi-shi/" class="b-link-green">mysql基础</a>
                 </p>
             </div>
         </div>
@@ -518,24 +519,27 @@
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="article-badge left-badge text-color">Current</div>
             <div class="card">
-                <a href="/2019/01/03/mysql-zeng-shan-cha-gai/">
+                <a href="/2019/01/03/mysql-ji-chu-zhi-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="mysql增删查改">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="mysql基础">
                         
-                        <span class="card-title">mysql增删查改</span>
+                        <span class="card-title">mysql基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">– 关系型数据库可以保证数据的完整性– 实体完整性:每条记录都是独一无二的没有冗余 - 主键/唯一索引– 参照完整性(引用完整性):外键– 域完整性:数据类型、非空约束、默认值约束、检查约束
-– 创建SRS数据库drop database </div>
+                    <div class="summary">xlrd xlwt1.数据库 - 实现项目中的数据持久化
+数据库的类别：
+
+关系型数据库 - MySQL特点:1.理论基础：集合论和关系代数2.用二维表来组织数据（行（记录）和列（字段））
+能够唯一标识一条记录的列成为主键(primary </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -544,6 +548,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -552,17 +557,19 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2019/01/03/zi-fu-chuan-fang-fa-zong-jie/">
+                <a href="/2019/01/03/mysql-quan-xian-guan-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="字符串方法(总结)">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="mysql权限管理">
                         
-                        <span class="card-title">字符串方法(总结)</span>
+                        <span class="card-title">mysql权限管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">0.len(字符串) - 返回字符串长度（字符的个数）1.字符串.capitalize() - 第一个字母转换大写2.字符串.center(宽度，填充物) - 居中 （ljust-左对齐，rjust-右对齐）3.字符串1.join（字符串2</div>
+                    <div class="summary">use hrs
+– 事务：多个数据操作要么全都成功要么全都失败（不可分割） - 一致性问题start transaction;  – 开启事务begin;              – 开启事务
+commit;             – </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
