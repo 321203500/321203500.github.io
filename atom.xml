@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mr Chao</title>
+  
+  <subtitle>乐生</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-01-03T04:24:58.582Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>杜超</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux文件操作命令</title>
+    <link href="http://yoursite.com/2019/01/03/linux-wen-jian-cao-zuo-ming-ling/"/>
+    <id>http://yoursite.com/2019/01/03/linux-wen-jian-cao-zuo-ming-ling/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:24:58.582Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Linux文件操作命令：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pwd - print working directory&lt;/li&gt;
+&lt;li&gt;cd - change directory&lt;/li&gt;
+&lt;li&gt;ls - list directory contents&lt;br&gt; -a -
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx服务器安装</title>
+    <link href="http://yoursite.com/2019/01/03/nginx-fu-wu-qi-an-zhuang/"/>
+    <id>http://yoursite.com/2019/01/03/nginx-fu-wu-qi-an-zhuang/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:26:08.309Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Nginx服务器&quot;&gt;&lt;a href=&quot;#Nginx服务器&quot; class=&quot;headerlink&quot; title=&quot;Nginx服务器&quot;&gt;&lt;/a&gt;Nginx服务器&lt;/h1&gt;&lt;h3 id=&quot;1-阿里云添加80端口&quot;&gt;&lt;a href=&quot;#1-阿里云添加80端口&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Redis指令(总结)</title>
+    <link href="http://yoursite.com/2019/01/03/redis-zhi-ling-zong-jie/"/>
+    <id>http://yoursite.com/2019/01/03/redis-zhi-ling-zong-jie/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:26:57.085Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;登录指令：&lt;/p&gt;
+&lt;p&gt;redis-server –requirepass 123456 –appendonly yes –port 6379&lt;/p&gt;
+&lt;p&gt;Linux + Apache + MySQL + PHP&lt;/p&gt;
+&lt;p&gt;KV存储系统 - REmote
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git常用指令</title>
+    <link href="http://yoursite.com/2019/01/03/git-chang-yong-zhi-ling/"/>
+    <id>http://yoursite.com/2019/01/03/git-chang-yong-zhi-ling/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:24:24.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;git常用指令&quot;&gt;&lt;a href=&quot;#git常用指令&quot; class=&quot;headerlink&quot; title=&quot;git常用指令&quot;&gt;&lt;/a&gt;git常用指令&lt;/h1&gt;&lt;h2 id=&quot;1-基本指令&quot;&gt;&lt;a href=&quot;#1-基本指令&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mysql查语法</title>
+    <link href="http://yoursite.com/2019/01/03/mysql-cha-yu-fa/"/>
+    <id>http://yoursite.com/2019/01/03/mysql-cha-yu-fa/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:25:25.064Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;– 创建人力资源管理系统数据库&lt;br&gt;drop database if exists hrs;&lt;br&gt;create database hrs default charset utf8;&lt;br&gt;– 切换数据库上下文环境&lt;br&gt;use hrs;&lt;br&gt;–
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redis命令</title>
+    <link href="http://yoursite.com/2019/01/03/redis-ming-ling/"/>
+    <id>http://yoursite.com/2019/01/03/redis-ming-ling/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:26:31.444Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、连接操作相关的命令&lt;/p&gt;
+&lt;p&gt;quit：关闭连接（connection）&lt;/p&gt;
+&lt;p&gt;auth：简单密码认证&lt;/p&gt;
+&lt;p&gt;2、对value操作的命令&lt;/p&gt;
+&lt;p&gt;exists(key)：确认一个key是否存在&lt;/p&gt;
+&lt;p&gt;del(key)：删除一个key&lt;/
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>title</title>
+    <link href="http://yoursite.com/2019/01/03/title/"/>
+    <id>http://yoursite.com/2019/01/03/title/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:28:35.769Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;你好！&quot;&gt;&lt;a href=&quot;#你好！&quot; class=&quot;headerlink&quot; title=&quot;你好！&quot;&gt;&lt;/a&gt;你好！&lt;/h1&gt;&lt;h1 id=&quot;hello！&quot;&gt;&lt;a href=&quot;#hello！&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vim编辑器之神</title>
+    <link href="http://yoursite.com/2019/01/03/vim-bian-ji-qi-zhi-shen/"/>
+    <id>http://yoursite.com/2019/01/03/vim-bian-ji-qi-zhi-shen/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:27:23.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;vim编辑器之神&quot;&gt;&lt;a href=&quot;#vim编辑器之神&quot; class=&quot;headerlink&quot; title=&quot;vim编辑器之神&quot;&gt;&lt;/a&gt;vim编辑器之神&lt;/h1&gt;&lt;h3 id=&quot;配置vimrc配置&quot;&gt;&lt;a href=&quot;#配置vimrc配置&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前端(总结)</title>
+    <link href="http://yoursite.com/2019/01/03/qian-duan-zong-jie/"/>
+    <id>http://yoursite.com/2019/01/03/qian-duan-zong-jie/</id>
+    <published>2019-01-03T04:20:41.000Z</published>
+    <updated>2019-01-03T04:27:52.837Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.HTML标签 - 承载内容 - content&lt;br&gt;2.CSS - 渲染页面 - display
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/12/21/hello-world/"/>
+    <id>http://yoursite.com/2018/12/21/hello-world/</id>
+    <published>2018-12-21T07:55:11.875Z</published>
+    <updated>2018-12-21T07:55:11.875Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
