@@ -1,0 +1,753 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="restful使用指南, Mr Chao">
+    <meta name="description" content="restful使用指南1
+前言
+REST是所有Web应用都应该遵守的架构设计指导原则。
+Representational State Transfer，翻译是”表现层状态转化”。
+REST核心: 资源， 状态转移， 统一接口
+资源: 是RE">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>restful使用指南 | Mr Chao</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Mr Chao</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>好友</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Mr Chao</div>
+        <div class="logo-desc">
+            
+            将心比心！
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                好友
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/321203500/321203500.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/321203500" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="321203500@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 321203500" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/321203500/321203500.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        restful使用指南
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-22
+                </span>
+				
+				
+                    <span id="busuanzi_container_page_pv" class="post-read">
+                    <i class="fa fa-eye fa-fw"></i>Read <span id="busuanzi_value_page_pv"></span>
+				
+            </span></div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>restful使用指南1</p>
+<p>前言</p>
+<p>REST是所有Web应用都应该遵守的架构设计指导原则。</p>
+<p>Representational State Transfer，翻译是”表现层状态转化”。</p>
+<p>REST核心: 资源， 状态转移， 统一接口</p>
+<p>资源: 是REST最明显的特征,是指对某类信息实体的抽象，资源是服务器上一个可命名的抽象概念，资源是以名词为核心来组织的，首先关注的是名词。</p>
+<p>状态转移: 是指客户端痛服务端进行交互的过程中，客户端能够通过对资源的表述，实现操作资源的目的</p>
+<p>统一接口: REST要求，必须通过统一的接口来对资源执行各种操作。对于每个资源只能执行一组有限的操作。 比如，客户端通过HTTP的4个请求方式(POST, GET, PUT, PATCH)来操作资源，也就意味着不管你的url是什么，不管请求的资源是什么但操作的资源接口都是统一的。</p>
+<p>GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT(PATCH)用来更新资源，DELETE用来删除资源。</p>
+<ol>
+<li>api定义规范</li>
+</ol>
+<p><a href="http://xxx.com/api/" target="_blank" rel="noopener">http://xxx.com/api/</a></p>
+<ol start="2">
+<li>资源</li>
+</ol>
+<p>在RESTful架构中，每个网址代表一种资源（resource），所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的”集合”（collection），所以API中的名词也应该使用复数。</p>
+<p>举例来说，有一个API提供动物园（zoo）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。</p>
+<p><a href="https://api.example.com/v1/zoos" target="_blank" rel="noopener">https://api.example.com/v1/zoos</a></p>
+<p><a href="https://api.example.com/v1/animals" target="_blank" rel="noopener">https://api.example.com/v1/animals</a></p>
+<p><a href="https://api.example.com/v1/employees" target="_blank" rel="noopener">https://api.example.com/v1/employees</a></p>
+<ol start="3">
+<li>http请求方式</li>
+</ol>
+<p>GET（SELECT）：从服务器取出资源（一项或多项）</p>
+<p>POST（CREATE）：在服务器新建一个资源</p>
+<p>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）</p>
+<p>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）</p>
+<p>DELETE（DELETE）：从服务器删除资源<br>例子：</p>
+<p>GET /zoos：列出所有动物园</p>
+<p>POST /zoos：新建一个动物园</p>
+<p>GET /zoos/ID：获取某个指定动物园的信息</p>
+<p>PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）</p>
+<p>PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）</p>
+<p>DELETE /zoos/ID：删除某个动物园</p>
+<p>GET /zoos/ID/animals：列出某个指定动物园的所有动物</p>
+<p>DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物</p>
+<ol start="4">
+<li>filter过滤</li>
+</ol>
+<p>?page=2&amp;per_page=100：指定第几页，以及每页的记录数。</p>
+<p>?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</p>
+<p>?animal_type_id=1：指定筛选条件</p>
+<ol start="5">
+<li>状态码</li>
+</ol>
+<p>服务端向用户返回请求api的结果，在结果中包含了status codes 状态码的，可以通过状态码去判断请求api的状态是成功还是失败</p>
+<p>200 OK - [GET]：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。</p>
+<p>201 CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功。</p>
+<p>202 Accepted - [*]：表示一个请求已经进入后台排队（异步任务）</p>
+<p>204 NO CONTENT - [DELETE]：用户删除数据成功。</p>
+<p>400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。</p>
+<p>401 Unauthorized - [*]：表示用户没有权限（令牌、用户名、密码错误）。</p>
+<p>403 Forbidden - [*] 表示用户得到授权（与401错误相对），但是访问是被禁止的。</p>
+<p>404 NOT FOUND - [*]：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。</p>
+<p>406 Not Acceptable - [GET]：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。</p>
+<p>410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的。</p>
+<p>422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。</p>
+<p>500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功。</p>
+<ol start="6">
+<li>错误处理</li>
+</ol>
+<p>如果状态码是4xx，就应该向用户返回出错信息。一般来说，返回的信息中将error作为键名，出错信息作为键值即可。</p>
+<p>{<br>    error: ‘错误信息’<br>}</p>
+<ol start="7">
+<li>django中使用restful</li>
+</ol>
+<p>pip install djangorestframework==3.4.6</p>
+<p>pip install django-filter  # Filtering support</p>
+<ol start="8">
+<li>settings.py配置的修改</li>
+</ol>
+<p>在工程目录中的settings.py文件的INSTALLED_APPS中需要添加rest_framework</p>
+<p>INSTALLED_APPS = [<br>    …</p>
+<pre><code>&#39;rest_framework&#39;,
+</code></pre><p>]</p>
+<ol start="9">
+<li>在应用app中定义路由URL</li>
+</ol>
+<p>定义路由需要注意：</p>
+<p>使用router.register注册的url为资源，而且资源只能为名词不能为动词。</p>
+<p>定义的资源不要加’/‘斜杠，在访问地址的时候，URL中会默认的添加反斜杠’/‘</p>
+<p> from django.conf.urls import url</p>
+<p> from rest_framework.routers import SimpleRouter</p>
+<p> from app import views</p>
+<h1 id="引入路由"><a href="#引入路由" class="headerlink" title="引入路由"></a>引入路由</h1><p> router = SimpleRouter()</p>
+<h1 id="使用router注册的地址"><a href="#使用router注册的地址" class="headerlink" title="使用router注册的地址"></a>使用router注册的地址</h1><p> router.register(r’^student’, views.StudentView)</p>
+<p> urlpatterns = [</p>
+<p> ]<br> urlpatterns += router.urls</p>
+<ol start="10">
+<li>在视图views.py文件中定义StudentView类</li>
+</ol>
+<p>具体的详细介绍在地址</p>
+<p>通过定义StudentView并继承了mixins的方法，即可有对应个增删改查的方法。在StudentView中还定义了两个变量queryset、serializer_class。</p>
+<p>from rest_framework import viewsets, mixins</p>
+<p>from app.models import Student<br>from app.serializers import StudentSerializer</p>
+<p>class StudentView(mixins.ListModelMixin,<br>                  mixins.CreateModelMixin,<br>                  mixins.DestroyModelMixin,<br>                  mixins.RetrieveModelMixin,<br>                  mixins.UpdateModelMixin,<br>                  viewsets.GenericViewSet):</p>
+<pre><code># 返回数据
+queryset = Student.objects.all()
+# 序列化结果
+serializer_class = StudentSerializer
+</code></pre><p>其中queryset参数表示需要需要序列化的数据 serializer_class参数指定序列化的类</p>
+<ol start="11">
+<li>定义序列化类</li>
+</ol>
+<p>序列化类需要继承ModelSerializer，使用ModelSerializer表明序列化整个Student模型，并且可以指定虚拟化哪些字段。</p>
+<p>from rest_framework import serializers</p>
+<p>from app.models import Student</p>
+<p>class StudentSerializer(serializers.ModelSerializer):</p>
+<pre><code>class Meta:
+    # 指定序列化的模型
+    model = Student
+    # 指定序列化哪些字段
+    fields = [&#39;id&#39;, &#39;s_name&#39;, &#39;s_age&#39;]
+</code></pre><p>通过以上的代码，可以通过以下的URL和HTTP请求方式，完成对资源Student的CRUD操作：</p>
+<p>CRUD对应的增删改查：</p>
+<p>增： POST <a href="http://127.0.0.1:8080/stu/addStu/" target="_blank" rel="noopener">http://127.0.0.1:8080/stu/addStu/</a></p>
+<p>删： DELETE <a href="http://127.0.0.1:8080/stu/addStu/1/" target="_blank" rel="noopener">http://127.0.0.1:8080/stu/addStu/1/</a></p>
+<p>改： UPDATE <a href="http://127.0.0.1:8080/stu/addStu/1/" target="_blank" rel="noopener">http://127.0.0.1:8080/stu/addStu/1/</a></p>
+<p>查： GET <a href="http://127.0.0.1:8080/stu/addStu/1/" target="_blank" rel="noopener">http://127.0.0.1:8080/stu/addStu/1/</a></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="http://yoursite.com" class="b-link-green">Mr Chao</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/01/22/restful-shi-yong-zhi-nan/" class="b-link-green">restful使用指南</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2019/01/22/title/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="title">
+                        
+                        <span class="card-title">title</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">你好！hello！</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            杜超
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/01/22/redis-zhi-ling-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Redis指令(总结)">
+                        
+                        <span class="card-title">Redis指令(总结)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">登录指令：
+redis-server –requirepass 123456 –appendonly yes –port 6379
+Linux + Apache + MySQL + PHP
+KV存储系统 - REmote DIctionar</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            杜超
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Chao</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+			
+                <br>
+                <span id="busuanzi_container_site_pv">
+                    小可爱 <span id="busuanzi_value_site_pv" style="color: #fff;"></span> 个脚印,&nbsp;
+                </span>
+				<span id="busuanzi_container_site_uv">
+                    我有 <span id="busuanzi_value_site_uv" style="color: #fff;"></span> 小宝贝.
+                </span>
+			
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/321203500" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="321203500@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 321203500" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

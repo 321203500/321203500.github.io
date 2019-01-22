@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-03T12:16:40.080Z</updated>
+  <updated>2019-01-03T12:04:07.799Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,126 +17,10 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mysql基础</title>
-    <link href="http://yoursite.com/2019/01/03/mysql-ji-chu-zhi-shi/"/>
-    <id>http://yoursite.com/2019/01/03/mysql-ji-chu-zhi-shi/</id>
-    <published>2019-01-03T12:17:55.305Z</published>
-    <updated>2019-01-03T12:16:40.080Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;xlrd xlwt&lt;br&gt;1.数据库 - 实现项目中的数据持久化&lt;/p&gt;
-&lt;p&gt;数据库的类别：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;关系型数据库 -
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>mysql权限管理</title>
-    <link href="http://yoursite.com/2019/01/03/mysql-quan-xian-guan-li/"/>
-    <id>http://yoursite.com/2019/01/03/mysql-quan-xian-guan-li/</id>
-    <published>2019-01-03T12:07:41.051Z</published>
-    <updated>2019-01-03T12:12:20.979Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;use hrs&lt;/p&gt;
-&lt;p&gt;– 事务：多个数据操作要么全都成功要么全都失败（不可分割） - 一致性问题&lt;br&gt;start transaction;  – 开启事务&lt;br&gt;begin;              – 开启事务&lt;/p&gt;
-&lt;p&gt;commit;         
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>mysql增删查改</title>
-    <link href="http://yoursite.com/2019/01/03/mysql-zeng-shan-cha-gai/"/>
-    <id>http://yoursite.com/2019/01/03/mysql-zeng-shan-cha-gai/</id>
-    <published>2019-01-03T12:07:41.049Z</published>
-    <updated>2019-01-03T12:11:56.190Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;– 关系型数据库可以保证数据的完整性&lt;br&gt;– 实体完整性:每条记录都是独一无二的没有冗余 - 主键/唯一索引&lt;br&gt;– 参照完整性(引用完整性):外键&lt;br&gt;– 域完整性:数据类型、非空约束、默认值约束、检查约束&lt;/p&gt;
-&lt;p&gt;– 创建SRS数据库&lt;br&gt;drop
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>字符串方法(总结)</title>
-    <link href="http://yoursite.com/2019/01/03/zi-fu-chuan-fang-fa-zong-jie/"/>
-    <id>http://yoursite.com/2019/01/03/zi-fu-chuan-fang-fa-zong-jie/</id>
-    <published>2019-01-03T12:07:05.499Z</published>
-    <updated>2019-01-03T12:11:19.146Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;0.len(字符串) - 返回字符串长度（字符的个数）&lt;br&gt;1.字符串.capitalize() - 第一个字母转换大写&lt;br&gt;2.字符串.center(宽度，填充物) - 居中 （ljust-左对齐，rjust-右对齐）&lt;br&gt;3.字符串1.join（字符串2）-
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Django增删查改</title>
-    <link href="http://yoursite.com/2019/01/03/django-zeng-shan-cha-gai/"/>
-    <id>http://yoursite.com/2019/01/03/django-zeng-shan-cha-gai/</id>
-    <published>2019-01-03T12:05:52.081Z</published>
-    <updated>2019-01-03T11:48:49.948Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-增&quot;&gt;&lt;a href=&quot;#1-增&quot; class=&quot;headerlink&quot; title=&quot;1.增&quot;&gt;&lt;/a&gt;1.增&lt;/h2&gt;&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Django基础</title>
-    <link href="http://yoursite.com/2019/01/03/django-ji-chu/"/>
-    <id>http://yoursite.com/2019/01/03/django-ji-chu/</id>
-    <published>2019-01-03T12:05:50.049Z</published>
+    <link href="http://yoursite.com/2019/01/22/django-ji-chu/"/>
+    <id>http://yoursite.com/2019/01/22/django-ji-chu/</id>
+    <published>2019-01-22T12:08:19.520Z</published>
     <updated>2019-01-03T12:04:07.799Z</updated>
     
     <summary type="html">
@@ -155,11 +39,11 @@
   </entry>
   
   <entry>
-    <title>title</title>
-    <link href="http://yoursite.com/2019/01/03/title/"/>
-    <id>http://yoursite.com/2019/01/03/title/</id>
-    <published>2019-01-03T04:20:41.058Z</published>
-    <updated>2019-01-03T09:54:16.168Z</updated>
+    <title>centos部署django项目</title>
+    <link href="http://yoursite.com/2019/01/22/centos-bu-shu-django-xiang-mu/"/>
+    <id>http://yoursite.com/2019/01/22/centos-bu-shu-django-xiang-mu/</id>
+    <published>2019-01-22T12:08:19.508Z</published>
+    <updated>2019-01-18T12:02:22.699Z</updated>
     
     <summary type="html">
     
@@ -167,7 +51,7 @@
       
         
         
-          &lt;h1 id=&quot;你好！&quot;&gt;&lt;a href=&quot;#你好！&quot; class=&quot;headerlink&quot; title=&quot;你好！&quot;&gt;&lt;/a&gt;你好！&lt;/h1&gt;&lt;h1 id=&quot;hello！&quot;&gt;&lt;a href=&quot;#hello！&quot; class=&quot;headerlink&quot;
+          &lt;h3 id=&quot;1-创建虚拟环境&quot;&gt;&lt;a href=&quot;#1-创建虚拟环境&quot; class=&quot;headerlink&quot; title=&quot;1.创建虚拟环境&quot;&gt;&lt;/a&gt;1.创建虚拟环境&lt;/h3&gt;&lt;p&gt;指定python版本创建虚拟环境&lt;br&gt;    virtualenv
         
       
     
@@ -177,11 +61,11 @@
   </entry>
   
   <entry>
-    <title>mysql查语法</title>
-    <link href="http://yoursite.com/2019/01/03/mysql-cha-yu-fa/"/>
-    <id>http://yoursite.com/2019/01/03/mysql-cha-yu-fa/</id>
-    <published>2019-01-03T04:16:20.654Z</published>
-    <updated>2019-01-03T09:52:20.337Z</updated>
+    <title>字符串方法(总结)</title>
+    <link href="http://yoursite.com/2019/01/22/zi-fu-chuan-fang-fa-zong-jie/"/>
+    <id>http://yoursite.com/2019/01/22/zi-fu-chuan-fang-fa-zong-jie/</id>
+    <published>2019-01-22T12:08:19.502Z</published>
+    <updated>2019-01-03T12:11:19.146Z</updated>
     
     <summary type="html">
     
@@ -189,7 +73,51 @@
       
         
         
-          &lt;p&gt;– 创建人力资源管理系统数据库&lt;br&gt;drop database if exists hrs;&lt;br&gt;create database hrs default charset utf8;&lt;br&gt;– 切换数据库上下文环境&lt;br&gt;use hrs;&lt;br&gt;–
+          &lt;p&gt;0.len(字符串) - 返回字符串长度（字符的个数）&lt;br&gt;1.字符串.capitalize() - 第一个字母转换大写&lt;br&gt;2.字符串.center(宽度，填充物) - 居中 （ljust-左对齐，rjust-右对齐）&lt;br&gt;3.字符串1.join（字符串2）-
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/01/22/wan-zhuan-linux-cao-zuo-xi-tong/"/>
+    <id>http://yoursite.com/2019/01/22/wan-zhuan-linux-cao-zuo-xi-tong/</id>
+    <published>2019-01-22T12:08:19.486Z</published>
+    <updated>2019-01-21T09:01:26.978Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;玩转Linux操作系统&quot;&gt;&lt;a href=&quot;#玩转Linux操作系统&quot; class=&quot;headerlink&quot; title=&quot;玩转Linux操作系统&quot;&gt;&lt;/a&gt;玩转Linux操作系统&lt;/h2&gt;&lt;h3 id=&quot;操作系统发展史&quot;&gt;&lt;a href=&quot;#操作系统发展史&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>日志使用指南</title>
+    <link href="http://yoursite.com/2019/01/22/ri-zhi-shi-yong-zhi-nan/"/>
+    <id>http://yoursite.com/2019/01/22/ri-zhi-shi-yong-zhi-nan/</id>
+    <published>2019-01-22T12:08:19.475Z</published>
+    <updated>2019-01-14T11:08:15.413Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;日志使用指南&quot;&gt;&lt;a href=&quot;#日志使用指南&quot; class=&quot;headerlink&quot; title=&quot;日志使用指南&quot;&gt;&lt;/a&gt;日志使用指南&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
         
       
     
@@ -200,9 +128,9 @@
   
   <entry>
     <title>前端(总结)</title>
-    <link href="http://yoursite.com/2019/01/02/qian-duan-zong-jie/"/>
-    <id>http://yoursite.com/2019/01/02/qian-duan-zong-jie/</id>
-    <published>2019-01-02T12:29:52.504Z</published>
+    <link href="http://yoursite.com/2019/01/22/qian-duan-zong-jie/"/>
+    <id>http://yoursite.com/2019/01/22/qian-duan-zong-jie/</id>
+    <published>2019-01-22T12:08:19.464Z</published>
     <updated>2019-01-03T09:53:52.823Z</updated>
     
     <summary type="html">
@@ -222,9 +150,9 @@
   
   <entry>
     <title>vim编辑器之神</title>
-    <link href="http://yoursite.com/2019/01/02/vim-bian-ji-qi-zhi-shen/"/>
-    <id>http://yoursite.com/2019/01/02/vim-bian-ji-qi-zhi-shen/</id>
-    <published>2019-01-02T12:29:49.331Z</published>
+    <link href="http://yoursite.com/2019/01/22/vim-bian-ji-qi-zhi-shen/"/>
+    <id>http://yoursite.com/2019/01/22/vim-bian-ji-qi-zhi-shen/</id>
+    <published>2019-01-22T12:08:19.452Z</published>
     <updated>2019-01-03T09:53:37.200Z</updated>
     
     <summary type="html">
@@ -243,10 +171,58 @@
   </entry>
   
   <entry>
+    <title>title</title>
+    <link href="http://yoursite.com/2019/01/22/title/"/>
+    <id>http://yoursite.com/2019/01/22/title/</id>
+    <published>2019-01-22T12:08:19.450Z</published>
+    <updated>2019-01-03T09:54:16.168Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;你好！&quot;&gt;&lt;a href=&quot;#你好！&quot; class=&quot;headerlink&quot; title=&quot;你好！&quot;&gt;&lt;/a&gt;你好！&lt;/h1&gt;&lt;h1 id=&quot;hello！&quot;&gt;&lt;a href=&quot;#hello！&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>restful使用指南</title>
+    <link href="http://yoursite.com/2019/01/22/restful-shi-yong-zhi-nan/"/>
+    <id>http://yoursite.com/2019/01/22/restful-shi-yong-zhi-nan/</id>
+    <published>2019-01-22T12:08:19.438Z</published>
+    <updated>2019-01-14T11:36:30.919Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;restful使用指南1&lt;/p&gt;
+&lt;p&gt;前言&lt;/p&gt;
+&lt;p&gt;REST是所有Web应用都应该遵守的架构设计指导原则。&lt;/p&gt;
+&lt;p&gt;Representational State Transfer，翻译是”表现层状态转化”。&lt;/p&gt;
+&lt;p&gt;REST核心: 资源， 状态转移，
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Redis指令(总结)</title>
-    <link href="http://yoursite.com/2019/01/02/redis-zhi-ling-zong-jie/"/>
-    <id>http://yoursite.com/2019/01/02/redis-zhi-ling-zong-jie/</id>
-    <published>2019-01-02T12:29:48.040Z</published>
+    <link href="http://yoursite.com/2019/01/22/redis-zhi-ling-zong-jie/"/>
+    <id>http://yoursite.com/2019/01/22/redis-zhi-ling-zong-jie/</id>
+    <published>2019-01-22T12:08:19.430Z</published>
     <updated>2019-01-03T09:53:20.702Z</updated>
     
     <summary type="html">
@@ -269,9 +245,9 @@
   
   <entry>
     <title>redis命令</title>
-    <link href="http://yoursite.com/2019/01/02/redis-ming-ling/"/>
-    <id>http://yoursite.com/2019/01/02/redis-ming-ling/</id>
-    <published>2019-01-02T12:29:46.886Z</published>
+    <link href="http://yoursite.com/2019/01/22/redis-ming-ling/"/>
+    <id>http://yoursite.com/2019/01/22/redis-ming-ling/</id>
+    <published>2019-01-22T12:08:19.420Z</published>
     <updated>2019-01-03T09:53:04.184Z</updated>
     
     <summary type="html">
@@ -296,9 +272,9 @@
   
   <entry>
     <title>Nginx服务器安装</title>
-    <link href="http://yoursite.com/2019/01/02/nginx-fu-wu-qi-an-zhuang/"/>
-    <id>http://yoursite.com/2019/01/02/nginx-fu-wu-qi-an-zhuang/</id>
-    <published>2019-01-02T12:29:45.190Z</published>
+    <link href="http://yoursite.com/2019/01/22/nginx-fu-wu-qi-an-zhuang/"/>
+    <id>http://yoursite.com/2019/01/22/nginx-fu-wu-qi-an-zhuang/</id>
+    <published>2019-01-22T12:08:19.402Z</published>
     <updated>2019-01-03T09:52:39.522Z</updated>
     
     <summary type="html">
@@ -317,10 +293,104 @@
   </entry>
   
   <entry>
+    <title>mysql增删查改</title>
+    <link href="http://yoursite.com/2019/01/22/mysql-zeng-shan-cha-gai/"/>
+    <id>http://yoursite.com/2019/01/22/mysql-zeng-shan-cha-gai/</id>
+    <published>2019-01-22T12:08:19.382Z</published>
+    <updated>2019-01-03T12:11:56.190Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;– 关系型数据库可以保证数据的完整性&lt;br&gt;– 实体完整性:每条记录都是独一无二的没有冗余 - 主键/唯一索引&lt;br&gt;– 参照完整性(引用完整性):外键&lt;br&gt;– 域完整性:数据类型、非空约束、默认值约束、检查约束&lt;/p&gt;
+&lt;p&gt;– 创建SRS数据库&lt;br&gt;drop
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mysql权限管理</title>
+    <link href="http://yoursite.com/2019/01/22/mysql-quan-xian-guan-li/"/>
+    <id>http://yoursite.com/2019/01/22/mysql-quan-xian-guan-li/</id>
+    <published>2019-01-22T12:08:19.373Z</published>
+    <updated>2019-01-03T12:12:20.979Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;use hrs&lt;/p&gt;
+&lt;p&gt;– 事务：多个数据操作要么全都成功要么全都失败（不可分割） - 一致性问题&lt;br&gt;start transaction;  – 开启事务&lt;br&gt;begin;              – 开启事务&lt;/p&gt;
+&lt;p&gt;commit;         
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mysql基础</title>
+    <link href="http://yoursite.com/2019/01/22/mysql-ji-chu-zhi-shi/"/>
+    <id>http://yoursite.com/2019/01/22/mysql-ji-chu-zhi-shi/</id>
+    <published>2019-01-22T12:08:19.359Z</published>
+    <updated>2019-01-03T12:16:40.080Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;xlrd xlwt&lt;br&gt;1.数据库 - 实现项目中的数据持久化&lt;/p&gt;
+&lt;p&gt;数据库的类别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关系型数据库 -
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mysql查语法</title>
+    <link href="http://yoursite.com/2019/01/22/mysql-cha-yu-fa/"/>
+    <id>http://yoursite.com/2019/01/22/mysql-cha-yu-fa/</id>
+    <published>2019-01-22T12:08:19.348Z</published>
+    <updated>2019-01-03T09:52:20.337Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;– 创建人力资源管理系统数据库&lt;br&gt;drop database if exists hrs;&lt;br&gt;create database hrs default charset utf8;&lt;br&gt;– 切换数据库上下文环境&lt;br&gt;use hrs;&lt;br&gt;–
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Linux文件操作命令</title>
-    <link href="http://yoursite.com/2019/01/02/linux-wen-jian-cao-zuo-ming-ling/"/>
-    <id>http://yoursite.com/2019/01/02/linux-wen-jian-cao-zuo-ming-ling/</id>
-    <published>2019-01-02T12:29:43.771Z</published>
+    <link href="http://yoursite.com/2019/01/22/linux-wen-jian-cao-zuo-ming-ling/"/>
+    <id>http://yoursite.com/2019/01/22/linux-wen-jian-cao-zuo-ming-ling/</id>
+    <published>2019-01-22T12:08:19.336Z</published>
     <updated>2019-01-03T09:51:36.726Z</updated>
     
     <summary type="html">
@@ -343,10 +413,32 @@
   </entry>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/01/22/hello-world/"/>
+    <id>http://yoursite.com/2019/01/22/hello-world/</id>
+    <published>2019-01-22T12:08:19.327Z</published>
+    <updated>2018-12-21T07:55:11.875Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>git常用指令</title>
-    <link href="http://yoursite.com/2019/01/02/git-chang-yong-zhi-ling/"/>
-    <id>http://yoursite.com/2019/01/02/git-chang-yong-zhi-ling/</id>
-    <published>2019-01-02T12:29:41.782Z</published>
+    <link href="http://yoursite.com/2019/01/22/git-chang-yong-zhi-ling/"/>
+    <id>http://yoursite.com/2019/01/22/git-chang-yong-zhi-ling/</id>
+    <published>2019-01-22T12:08:19.315Z</published>
     <updated>2019-01-03T09:50:15.904Z</updated>
     
     <summary type="html">
@@ -365,11 +457,11 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2018/12/21/hello-world/"/>
-    <id>http://yoursite.com/2018/12/21/hello-world/</id>
-    <published>2018-12-21T07:55:11.875Z</published>
-    <updated>2018-12-21T07:55:11.875Z</updated>
+    <title>github上传文件</title>
+    <link href="http://yoursite.com/2019/01/22/github-shang-chuan-wen-jian/"/>
+    <id>http://yoursite.com/2019/01/22/github-shang-chuan-wen-jian/</id>
+    <published>2019-01-22T12:08:19.301Z</published>
+    <updated>2019-01-22T11:25:05.084Z</updated>
     
     <summary type="html">
     
@@ -377,7 +469,8 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;h3 id=&quot;第一种-：&quot;&gt;&lt;a href=&quot;#第一种-：&quot; class=&quot;headerlink&quot; title=&quot;第一种 ：&quot;&gt;&lt;/a&gt;第一种 ：&lt;/h3&gt;&lt;p&gt;直接拖拽上传&lt;/p&gt;
+&lt;h3 id=&quot;第二种&quot;&gt;&lt;a href=&quot;#第二种&quot; class=&quot;headerlink&quot;
         
       
     

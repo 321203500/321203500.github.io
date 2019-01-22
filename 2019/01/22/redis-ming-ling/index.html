@@ -1,0 +1,743 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="redis命令, Mr Chao">
+    <meta name="description" content="1、连接操作相关的命令
+quit：关闭连接（connection）
+auth：简单密码认证
+2、对value操作的命令
+exists(key)：确认一个key是否存在
+del(key)：删除一个key
+type(key)：返回值的类型
+ke">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>redis命令 | Mr Chao</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Mr Chao</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>好友</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Mr Chao</div>
+        <div class="logo-desc">
+            
+            将心比心！
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                好友
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/321203500/321203500.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/321203500" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="321203500@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 321203500" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/321203500/321203500.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        redis命令
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-22
+                </span>
+				
+				
+                    <span id="busuanzi_container_page_pv" class="post-read">
+                    <i class="fa fa-eye fa-fw"></i>Read <span id="busuanzi_value_page_pv"></span>
+				
+            </span></div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>1、连接操作相关的命令</p>
+<p>quit：关闭连接（connection）</p>
+<p>auth：简单密码认证</p>
+<p>2、对value操作的命令</p>
+<p>exists(key)：确认一个key是否存在</p>
+<p>del(key)：删除一个key</p>
+<p>type(key)：返回值的类型</p>
+<p>keys(pattern)：返回满足给定pattern的所有key</p>
+<p>randomkey：随机返回key空间的一个key</p>
+<p>rename(oldname, newname)：将key由oldname重命名为newname，若newname存在则删除newname表示的key</p>
+<p>dbsize：返回当前数据库中key的数目</p>
+<p>expire：设定一个key的活动时间（s）</p>
+<p>ttl：获得一个key的活动时间</p>
+<p>select(index)：按索引查询</p>
+<p>move(key, dbindex)：将当前数据库中的key转移到有dbindex索引的数据库</p>
+<p>flushdb：删除当前选择数据库中的所有key</p>
+<p>flushall：删除所有数据库中的所有key</p>
+<p>3、对String操作的命令</p>
+<p>set(key, value)：给数据库中名称为key的string赋予值value</p>
+<p>get(key)：返回数据库中名称为key的string的value</p>
+<p>getset(key, value)：给名称为key的string赋予上一次的value</p>
+<p>mget(key1, key2,…, key N)：返回库中多个string（它们的名称为key1，key2…）的value</p>
+<p>setnx(key, value)：如果不存在名称为key的string，则向库中添加string，名称为key，值为value</p>
+<p>setex(key, time, value)：向库中添加string（名称为key，值为value）同时，设定过期时间time</p>
+<p>mset(key1, value1, key2, value2,…key N, value N)：同时给多个string赋值，名称为key i的string赋值value i</p>
+<p>msetnx(key1, value1, key2, value2,…key N, value N)：如果所有名称为key i的string都不存在，则向库中添加string，</p>
+<p>名称key i赋值为value i</p>
+<p>incr(key)：名称为key的string增1操作</p>
+<p>incrby(key, integer)：名称为key的string增加integer</p>
+<p>decr(key)：名称为key的string减1操作</p>
+<p>decrby(key, integer)：名称为key的string减少integer</p>
+<p>append(key, value)：名称为key的string的值附加value</p>
+<p>substr(key, start, end)：返回名称为key的string的value的子串</p>
+<p>4、对List操作的命令</p>
+<p>rpush(key, value)：在名称为key的list尾添加一个值为value的元素</p>
+<p>lpush(key, value)：在名称为key的list头添加一个值为value的 元素</p>
+<p>llen(key)：返回名称为key的list的长度</p>
+<p>lrange(key, start, end)：返回名称为key的list中start至end之间的元素（下标从0开始，下同）</p>
+<p>ltrim(key, start, end)：截取名称为key的list，保留start至end之间的元素</p>
+<p>lindex(key, index)：返回名称为key的list中index位置的元素</p>
+<p>lset(key, index, value)：给名称为key的list中index位置的元素赋值为value</p>
+<p>lrem(key, count, value)：删除count个名称为key的list中值为value的元素。</p>
+<p>count为0，删除所有值为value的元素，count&gt;0从头至尾删除count个值为value的元素，count&lt;0从尾到头删除|count|个值为value的元素。 </p>
+<p>lpop(key)：返回并删除名称为key的list中的首元素 rpop(key)：返回并删除名称为key的list中的尾元素 </p>
+<p>blpop(key1, key2,… key N, timeout)：lpop命令的block版本。</p>
+<p>即当timeout为0时，若遇到名称为key i的list不存在或该list为空，则命令结束。</p>
+<p>如果timeout&gt;0，则遇到上述情况时，等待timeout秒，如果问题没有解决，则对keyi+1开始的list执行pop操作。</p>
+<p>brpop(key1, key2,… key N, timeout)：rpop的block版本。参考上一命令。</p>
+<p>rpoplpush(srckey, dstkey)：返回并删除名称为srckey的list的尾元素，并将该元素添加到名称为dstkey的list的头部</p>
+<p>5、对Set操作的命令</p>
+<p>sadd(key, member)：向名称为key的set中添加元素member</p>
+<p>srem(key, member) ：删除名称为key的set中的元素member</p>
+<p>spop(key) ：随机返回并删除名称为key的set中一个元素</p>
+<p>smove(srckey, dstkey, member) ：将member元素从名称为srckey的集合移到名称为dstkey的集合</p>
+<p>scard(key) ：返回名称为key的set的基数</p>
+<p>sismember(key, member) ：测试member是否是名称为key的set的元素</p>
+<p>sinter(key1, key2,…key N) ：求交集</p>
+<p>sinterstore(dstkey, key1, key2,…key N) ：求交集并将交集保存到dstkey的集合</p>
+<p>sunion(key1, key2,…key N) ：求并集</p>
+<p>sunionstore(dstkey, key1, key2,…key N) ：求并集并将并集保存到dstkey的集合</p>
+<p>sdiff(key1, key2,…key N) ：求差集</p>
+<p>sdiffstore(dstkey, key1, key2,…key N) ：求差集并将差集保存到dstkey的集合</p>
+<p>smembers(key) ：返回名称为key的set的所有元素</p>
+<p>srandmember(key) ：随机返回名称为key的set的一个元素</p>
+<p>6、对zset（sorted set）操作的命令</p>
+<p>zadd(key, score, member)：向名称为key的zset中添加元素member，score用于排序。如果该元素已经存在，则根据score更新该元素的顺序。</p>
+<p>zrem(key, member) ：删除名称为key的zset中的元素member</p>
+<p>zincrby(key, increment, member) ：如果在名称为key的zset中已经存在元素member，则该元素的score增加increment；</p>
+<p>否则向集合中添加该元素，其score的值为increment</p>
+<p>zrank(key, member) ：返回名称为key的zset（元素已按score从小到大排序）中member元素的rank（即index，从0开始），</p>
+<p>若没有member元素，返回“nil”</p>
+<p>zrevrank(key, member) ：返回名称为key的zset（元素已按score从大到小排序）中member元素的rank（即index，从0开始），</p>
+<p>若没有member元素，返回“nil”</p>
+<p>zrange(key, start, end)：返回名称为key的zset（元素已按score从小到大排序）中的index从start到end的所有元素</p>
+<p>zrevrange(key, start, end)：返回名称为key的zset（元素已按score从大到小排序）中的index从start到end的所有元素</p>
+<p>zrangebyscore(key, min, max)：返回名称为key的zset中score &gt;= min且score &lt;= max的所有元素 </p>
+<p>zcard(key)：返回名称为key的zset的基数 zscore(key, element)：返回名称为key的zset中元素element的</p>
+<p>score zremrangebyrank(key, min, max)：删除名称为key的zset中rank &gt;= min且rank &lt;= max的所有元素 </p>
+<p>zremrangebyscore(key, min, max) ：删除名称为key的zset中score &gt;= min且score &lt;= max的所有元素</p>
+<p>zunionstore / zinterstore(dstkeyN, key1,…,keyN, WEIGHTS w1,…wN, AGGREGATE SUM|MIN|MAX)：对N个zset求并集和交集，</p>
+<p>并将最后的集合保存在dstkeyN中。对于集合中每一个元素的score，在进行AGGREGATE运算前，都要乘以对于的WEIGHT参数。</p>
+<p>如果没有提供WEIGHT，默认为1。默认的AGGREGATE是SUM，即结果集合中元素的score是所有集合对应元素进行SUM运算的值，而MIN和MAX是指，</p>
+<p>结果集合中元素的score是所有集合对应元素中最小值和最大值。</p>
+<p>7、对Hash操作的命令</p>
+<p>hset(key, field, value)：向名称为key的hash中添加元素field&lt;—&gt;value</p>
+<p>hget(key, field)：返回名称为key的hash中field对应的value</p>
+<p>hmget(key, field1, …,field N)：返回名称为key的hash中field i对应的value</p>
+<p>hmset(key, field1, value1,…,field N, value N)：向名称为key的hash中添加元素field i&lt;—&gt;value i</p>
+<p>hincrby(key, field, integer)：将名称为key的hash中field的value增加integer</p>
+<p>hexists(key, field)：名称为key的hash中是否存在键为field的域</p>
+<p>hdel(key, field)：删除名称为key的hash中键为field的域</p>
+<p>hlen(key)：返回名称为key的hash中元素个数</p>
+<p>hkeys(key)：返回名称为key的hash中所有键</p>
+<p>hvals(key)：返回名称为key的hash中所有键对应的value</p>
+<p>hgetall(key)：返回名称为key的hash中所有的键（field）及其对应的value</p>
+<p>8、持久化</p>
+<p>save：将数据同步保存到磁盘</p>
+<p>bgsave：将数据异步保存到磁盘</p>
+<p>lastsave：返回上次成功将数据保存到磁盘的Unix时戳</p>
+<p>shundown：将数据同步保存到磁盘，然后关闭服务</p>
+<p>9、远程服务控制</p>
+<p>info：提供服务器的信息和统计</p>
+<p>monitor：实时转储收到的请求</p>
+<p>slaveof：改变复制策略设置</p>
+<p>config：在运行时配置Redis服务器</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="http://yoursite.com" class="b-link-green">Mr Chao</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/01/22/redis-ming-ling/" class="b-link-green">redis命令</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2019/01/22/redis-zhi-ling-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Redis指令(总结)">
+                        
+                        <span class="card-title">Redis指令(总结)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">登录指令：
+redis-server –requirepass 123456 –appendonly yes –port 6379
+Linux + Apache + MySQL + PHP
+KV存储系统 - REmote DIctionar</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            杜超
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/01/22/nginx-fu-wu-qi-an-zhuang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Nginx服务器安装">
+                        
+                        <span class="card-title">Nginx服务器安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Nginx服务器1.阿里云添加80端口阿里云上默认只有一个22端口用来做远程登录，如果希望在阿里云上安装支持http请求的nginx服务器，需要给阿里云添加80端口
+
+2. 安装nginxa) 添加nginx存储库  
+    yum in</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            杜超
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Chao</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+			
+                <br>
+                <span id="busuanzi_container_site_pv">
+                    小可爱 <span id="busuanzi_value_site_pv" style="color: #fff;"></span> 个脚印,&nbsp;
+                </span>
+				<span id="busuanzi_container_site_uv">
+                    我有 <span id="busuanzi_value_site_uv" style="color: #fff;"></span> 小宝贝.
+                </span>
+			
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/321203500" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="321203500@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 321203500" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
