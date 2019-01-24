@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-03T12:04:07.799Z</updated>
+  <updated>2019-01-24T11:33:39.923Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>flask学习</title>
+    <link href="http://yoursite.com/2019/01/24/flask-xue-xi/"/>
+    <id>http://yoursite.com/2019/01/24/flask-xue-xi/</id>
+    <published>2019-01-24T11:35:02.359Z</published>
+    <updated>2019-01-24T11:33:39.923Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-虚拟环境&quot;&gt;&lt;a href=&quot;#1-虚拟环境&quot; class=&quot;headerlink&quot; title=&quot;1.虚拟环境&quot;&gt;&lt;/a&gt;1.虚拟环境&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;创建: virtualenv--no-site-packages -p xxxx
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>django过滤器</title>
+    <link href="http://yoursite.com/2019/01/23/django-guo-lu-qi/"/>
+    <id>http://yoursite.com/2019/01/23/django-guo-lu-qi/</id>
+    <published>2019-01-23T12:19:30.055Z</published>
+    <updated>2019-01-23T12:10:32.362Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code&gt;1、add ：将value的值增加2。使用形式为：{{ value | add: &quot;2&quot;}}。
+2、addslashes：在value中的引号前增加反斜线。使用形式为：{{ value | addslashes
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Django基础</title>
@@ -426,51 +471,6 @@
         
         
           &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git常用指令</title>
-    <link href="http://yoursite.com/2019/01/22/git-chang-yong-zhi-ling/"/>
-    <id>http://yoursite.com/2019/01/22/git-chang-yong-zhi-ling/</id>
-    <published>2019-01-22T12:08:19.315Z</published>
-    <updated>2019-01-03T09:50:15.904Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;git常用指令&quot;&gt;&lt;a href=&quot;#git常用指令&quot; class=&quot;headerlink&quot; title=&quot;git常用指令&quot;&gt;&lt;/a&gt;git常用指令&lt;/h1&gt;&lt;h2 id=&quot;1-基本指令&quot;&gt;&lt;a href=&quot;#1-基本指令&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>github上传文件</title>
-    <link href="http://yoursite.com/2019/01/22/github-shang-chuan-wen-jian/"/>
-    <id>http://yoursite.com/2019/01/22/github-shang-chuan-wen-jian/</id>
-    <published>2019-01-22T12:08:19.301Z</published>
-    <updated>2019-01-22T11:25:05.084Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;第一种-：&quot;&gt;&lt;a href=&quot;#第一种-：&quot; class=&quot;headerlink&quot; title=&quot;第一种 ：&quot;&gt;&lt;/a&gt;第一种 ：&lt;/h3&gt;&lt;p&gt;直接拖拽上传&lt;/p&gt;
-&lt;h3 id=&quot;第二种&quot;&gt;&lt;a href=&quot;#第二种&quot; class=&quot;headerlink&quot;
         
       
     
